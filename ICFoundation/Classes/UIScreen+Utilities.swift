@@ -10,14 +10,14 @@ import UIKit
 
 import UIKit
 
-extension UIScreen {
+extension ICKit where Base == UIScreen {
     
-    static func ic_isIPhoneX() -> Bool {
+    static func isIPhoneX() -> Bool {
         return fabs(UIScreen.main.bounds.height - 812) < 0.01
     }
     
-    static func ic_deviceBottomMarginHeight() -> CGFloat {
-        return self.ic_isIPhoneX() ? 34 : 0
+    static func deviceBottomMarginHeight() -> CGFloat {
+        return self.isIPhoneX() ? 34 : 0
     }
 }
 

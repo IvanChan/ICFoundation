@@ -8,62 +8,53 @@
 
 import UIKit
 
-extension String {
-    
-//    public var ic:String.ICExtensionString {
-//        get {
-//            return String.ICExtensionString(internalString: self)
-//        }
-//    }
-//    
-//    public struct ICExtensionString {
-//        let internalString: String
-//        
-    public var ic_lastPathComponent: String {
+extension ICKit where Base == String {
+
+    public var lastPathComponent: String {
         
         get {
-            return (self as NSString).lastPathComponent
+            return (base as NSString).lastPathComponent
         }
     }
-    public var ic_pathExtension: String {
+    public var pathExtension: String {
         
         get {
             
-            return (self as NSString).pathExtension
+            return (base as NSString).pathExtension
         }
     }
-    public var ic_stringByDeletingLastPathComponent: String {
+    public var stringByDeletingLastPathComponent: String {
         
         get {
             
-            return (self as NSString).deletingLastPathComponent
+            return (base as NSString).deletingLastPathComponent
         }
     }
-    public var ic_stringByDeletingPathExtension: String {
+    public var stringByDeletingPathExtension: String {
         
         get {
             
-            return (self as NSString).deletingPathExtension
+            return (base as NSString).deletingPathExtension
         }
     }
-    public var ic_pathComponents: [String] {
+    public var pathComponents: [String] {
         
         get {
             
-            return (self as NSString).pathComponents
+            return (base as NSString).pathComponents
         }
     }
     
-    public func ic_stringByAppendingPathComponent(path: String) -> String {
+    public func stringByAppendingPathComponent(path: String) -> String {
         
-        let nsSt = self as NSString
+        let nsSt = base as NSString
         
         return nsSt.appendingPathComponent(path)
     }
     
-    public func ic_stringByAppendingPathExtension(ext: String) -> String? {
+    public func stringByAppendingPathExtension(ext: String) -> String? {
         
-        let nsSt = self as NSString
+        let nsSt = base as NSString
         
         return nsSt.appendingPathExtension(ext)
     }

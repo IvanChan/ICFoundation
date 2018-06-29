@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ICFoundation'
-  s.version          = '0.1.2'
+  s.version          = '0.2.0'
   s.summary          = 'Utilities for system-classes extensions'
 
 # This description is used to generate tags and improve search results.
@@ -26,7 +26,6 @@ Utilities stuffs, for system-classes extensions.
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { '_ivanC' => 'aintivanc@icloud.com' }
   s.source           = { :git => 'https://github.com/IvanChan/ICFoundation.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
 

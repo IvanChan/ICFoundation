@@ -7,32 +7,32 @@
 //
 
 import UIKit
+extension ICKit where Base == UIViewController {
 
-extension UIViewController {
-    public func ic_displayContentController(contentViewController: UIViewController, onView: UIView) {
+    public func displayContentController(contentViewController: UIViewController, onView: UIView) {
         
-        self.addChildViewController(contentViewController)
+        base.addChildViewController(contentViewController)
         onView.addSubview(contentViewController.view)
         
-        contentViewController.didMove(toParentViewController: self)
+        contentViewController.didMove(toParentViewController: base)
     }
     
-    public func ic_displayContentController(contentViewController: UIViewController) {
+    public func displayContentController(contentViewController: UIViewController) {
         
-        self.ic_displayContentController(contentViewController: contentViewController, onView: self.view)
+        self.displayContentController(contentViewController: contentViewController, onView: base.view)
     }
     
     
-    public func ic_hideContentController(contentViewController: UIViewController) {
+    public func hideContentController(contentViewController: UIViewController) {
         
-        contentViewController.ic_hideFromParentViewController()
+        contentViewController.ic.hideFromParentViewController()
     }
     
-    public func ic_hideFromParentViewController() {
+    public func hideFromParentViewController() {
         
-        self.willMove(toParentViewController: nil)
+        base.willMove(toParentViewController: nil)
         
-        self.view.removeFromSuperview()
-        self.removeFromParentViewController()
+        base.view.removeFromSuperview()
+        base.removeFromParentViewController()
     }
 }

@@ -20,6 +20,11 @@ it, simply add the following line to your Podfile:
 pod 'ICFoundation'
 ```
 
+## Usage
+```
+let path = NSHomeDirectory().ic.stringByAppendingPathComponent(path: "abc.txt")
+```
+
 ## Author
 
 _ivanC, aintivanc@icloud.com
