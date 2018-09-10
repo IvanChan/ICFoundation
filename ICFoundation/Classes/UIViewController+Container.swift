@@ -7,7 +7,7 @@
 //
 
 import UIKit
-extension ICKit where Base == UIViewController {
+extension ICKit where Base : UIViewController {
 
     public func displayContentController(contentViewController: UIViewController, onView: UIView) {
         
