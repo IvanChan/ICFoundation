@@ -10,12 +10,31 @@ import UIKit
 
 extension ICKit where Base == UIScreen {
     
-    public func isIPhoneX() -> Bool {
-        return fabs(self.base.bounds.height - 812) < 0.01
+    public func safeArea() -> UIEdgeInsets {
+        var insets = UIEdgeInsets.zero
+        
+        if let appDelegate = UIApplication.shared.delegate {
+            if let appWindow = appDelegate.window as? UIWindow {
+                if #available(iOS 11.0, *) {
+                    insets = appWindow.safeAreaInsets
+                } else {
+                    // Fallback on earlier versions
+                    if let rootViewController = appWindow.rootViewController {
+                        insets = UIEdgeInsets(top: rootViewController.topLayoutGuide.length,
+                                              left: 0,
+                                              bottom: rootViewController.bottomLayoutGuide.length,
+                                              right: 0)
+                    }
+                }
+            }
+        }
+        
+        return insets
     }
     
-    public func deviceBottomMarginHeight() -> CGFloat {
-        return self.isIPhoneX() ? 34 : 0
+    public func isAlmostFullScreenDevice() -> Bool {
+        let safeArea = self.safeArea()
+        return safeArea.top == 44 && safeArea.bottom == 34
     }
 }
 

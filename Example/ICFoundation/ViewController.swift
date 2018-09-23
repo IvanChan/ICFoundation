@@ -16,6 +16,10 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         let path = NSHomeDirectory().ic.stringByAppendingPathComponent(path: "abc.txt")
         print(path)
+        
+        let safeArea = UIScreen.main.ic.safeArea()
+        print(safeArea)
+
     }
 
     override func didReceiveMemoryWarning() {
