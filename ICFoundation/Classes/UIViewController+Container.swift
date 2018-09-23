@@ -11,10 +11,10 @@ extension ICKit where Base : UIViewController {
 
     public func displayContentController(contentViewController: UIViewController, onView: UIView) {
         
-        base.addChildViewController(contentViewController)
+        base.addChild(contentViewController)
         onView.addSubview(contentViewController.view)
         
-        contentViewController.didMove(toParentViewController: base)
+        contentViewController.didMove(toParent: base)
     }
     
     public func displayContentController(contentViewController: UIViewController) {
@@ -30,9 +30,9 @@ extension ICKit where Base : UIViewController {
     
     public func hideFromParentViewController() {
         
-        base.willMove(toParentViewController: nil)
+        base.willMove(toParent: nil)
         
         base.view.removeFromSuperview()
-        base.removeFromParentViewController()
+        base.removeFromParent()
     }
 }
